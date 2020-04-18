@@ -1,0 +1,20 @@
+docker compose build
+docker compose up -d (-d = detached)
+docker compose down
+
+docker container ls -all
+
+
+dotnet new --list
+dotnet new webapi
+dotnet user-secrets set
+dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\[csproj name].pfx -p password
+
+dotnet dev-certs https --clean
+dotnet dev-certs https --check
+dotnet dev-certs https --trust
+
+https://medium.com/@the.green.man/set-up-https-on-local-with-net-core-and-docker-7a41f030fc76
+
+
+dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\user-api.pfx -p kestrelpassword

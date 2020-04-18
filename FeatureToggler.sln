@@ -3,9 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B9F6745E-8F1D-438A-913A-4010A4C4238C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToggleService", "src\ToggleService\ToggleService.csproj", "{10261AFA-A3A7-4153-897C-50E43B5847B3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService", "src\UserService\UserService.csproj", "{57F01DDF-43B4-474E-B41E-C1148640AF64}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10261AFA-A3A7-4153-897C-50E43B5847B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10261AFA-A3A7-4153-897C-50E43B5847B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10261AFA-A3A7-4153-897C-50E43B5847B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10261AFA-A3A7-4153-897C-50E43B5847B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57F01DDF-43B4-474E-B41E-C1148640AF64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57F01DDF-43B4-474E-B41E-C1148640AF64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57F01DDF-43B4-474E-B41E-C1148640AF64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57F01DDF-43B4-474E-B41E-C1148640AF64}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{10261AFA-A3A7-4153-897C-50E43B5847B3} = {B9F6745E-8F1D-438A-913A-4010A4C4238C}
+		{57F01DDF-43B4-474E-B41E-C1148640AF64} = {B9F6745E-8F1D-438A-913A-4010A4C4238C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9ACD0187-0B67-4162-B07B-4C357D885800}

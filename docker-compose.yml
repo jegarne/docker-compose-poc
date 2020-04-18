@@ -1,0 +1,49 @@
+version: '3.2'
+
+services:
+
+    toggle-api:
+        image: dockersamples/toggle-service
+        build:
+          context: .
+          dockerfile: docker/toggle-service/Dockerfile
+        ports:
+          - "3001:443"
+        environment:
+          - UserServiceUrl=https://user-api
+          - ASPNETCORE_URLS=https://+;http://+ 
+          - ASPNETCORE_HTTPS_PORT=3001 
+          - ASPNETCORE_ENVIRONMENT=Development   
+          - ASPNETCORE_Kestrel__Certificates__Default__Path=${ASPNETCORE_KESTREL_CERTIFICATE_PATH}
+          - ASPNETCORE_Kestrel__Certificates__Default__Password=${ASPNETCORE_KESTREL_CERTIFICATE_PASSWORD}
+        volumes:
+          - ${APPDATA}\Microsoft\UserSecrets\:c:/.microsoft/usersecrets:rw
+          - ${CERTIFICATE_PATH}:c:/.dotnet/https
+        depends_on:
+          - user-api
+
+
+    user-api:
+      image: dockersamples/user-service
+      build:
+          context: .
+          dockerfile: docker/user-service/Dockerfile
+      expose:
+        - "443"
+      ports:
+        - "3002:443"
+      environment: 
+        - ASPNETCORE_URLS=https://+;http://+ 
+        - ASPNETCORE_HTTPS_PORT=443 
+        - ASPNETCORE_ENVIRONMENT=Development   
+        - ASPNETCORE_Kestrel__Certificates__Default__Path=${ASPNETCORE_KESTREL_CERTIFICATE_PATH}
+        - ASPNETCORE_Kestrel__Certificates__Default__Password=${ASPNETCORE_KESTREL_CERTIFICATE_PASSWORD}
+      volumes:
+        - ${APPDATA}\Microsoft\UserSecrets\:c:/.microsoft/usersecrets:rw
+        - ${CERTIFICATE_PATH}:c:/.dotnet/https
+
+
+networks:
+  default:
+    external:
+      name: nat

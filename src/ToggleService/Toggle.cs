@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace toggle_service
+namespace ToggleService
 {
     public class Toggle
     {
